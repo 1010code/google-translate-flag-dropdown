@@ -40,7 +40,7 @@
 <body>
     <section>
         <div class="banner-right justify-content-center">
-            <!-- 更換語言 -->
+            <!-- 下拉式選單選擇翻譯語言 -->
             <div class="language inline-block dropdown mx-3">
                 <div class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
                     aria-expanded="false">
@@ -56,6 +56,7 @@
                 </ul>
             </div>
         </div>
+        <!-- 隱藏的 Google 翻譯元素 -->
         <div id="google_translate_element" style="display: none"></div><br><br>
     </section>
 
@@ -66,8 +67,8 @@
     <p>AI 技術可以使用機器學習和深度學習網路，以仿似人類的智慧來解決複雜問題。人工智慧也可以大規模處理資訊，包括消化模式、識別資訊並提供解答。您可以用 AI 來解決各種領域的問題，例如詐騙偵測、醫學診斷和業務分析。</p>
 
 
-    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script>
+        // 初始化 Google 翻譯元素
         function googleTranslateElementInit() {
             new google.translate.TranslateElement(
                 {
@@ -79,7 +80,7 @@
                 "google_translate_element"
             );
         }
-        
+
         // 取得所有下拉選單項目
         const dropdownItems = document.querySelectorAll('.dropdown-item');
         // 取得顯示當前語言的 span 元素
@@ -88,24 +89,24 @@
         // 為每個下拉選單項目添加點擊事件監聽器
         dropdownItems.forEach(item => {
             item.addEventListener('click', function () {
-                // 語言編號
+                // 取得翻譯語言編號
                 const selectedLanguageValue = this.getAttribute('data-value');
                 // 取得被點擊項目的文字
                 const selectedLanguage = this.textContent;
                 // 更新顯示當前語言的文字
                 currentLanguage.textContent = selectedLanguage;
-                console.log(selectedLanguageValue);
-                document.querySelector('.goog-te-combo').value=selectedLanguageValue;
 
-                const triggerEvent = (element, eventName) => {
-                    const event = new Event(eventName);
-                    element.dispatchEvent(event);
-                };
-                triggerEvent(document.querySelector(".goog-te-combo"), "change");
+                // 更新 Google 翻譯下拉選單的值並觸發變更事件
+                const translateCombo = document.querySelector('.goog-te-combo');
+                translateCombo.value = selectedLanguageValue;
+                // 觸發change事件
+                const event = new Event("change");
+                translateCombo.dispatchEvent(event);
 
             });
         });
     </script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 
 </html>
