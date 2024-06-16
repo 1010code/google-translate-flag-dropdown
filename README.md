@@ -2,6 +2,9 @@
 ## 如何在網頁內嵌 Google 翻譯並客製化下拉選單
 Google 翻譯提供了一個方便的嵌入式翻譯小工具，但其預設的下拉選單樣式可能不符合您的網站設計。本文將教您如何使用 Google 翻譯功能並客製化下拉選單，使其符合您的網站風格。
 
+![](./screenshot/demo01.png)
+![](./screenshot/demo02.png)
+
 ### 前置作業
 本範例將使用  Bootstrap5 和 FontAwesome 來幫助設計。
 
