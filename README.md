@@ -106,7 +106,7 @@ dropdownItems.forEach(item => {
 });
 ```
 
-完整程式碼
+> 完整程式碼可以從 [GitHub](https://github.com/1010code/google-translate-flag-dropdown) 取得
 
 
 ## Reference
